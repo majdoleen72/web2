@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriNest | User Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style1.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-content">
+     <a href="index.html" class="logo">
+  <img src="assets/img/logo.png" alt="NutriNest Logo" class="logo-img"
+  style="width: 50px; height: 50px; object-fit: contain;">
+  <div class="logo-text">Nutri<span>Nest</span></div>
+</a>
+        
+        <div class="nav">
+          <div class="user-menu">
+            <div class="user-avatar">
+              <img src="assets/img/usericon.png" alt="User Avatar">
+            </div>
+            <span class="user-name">Ahmed Al-Mansoori</span>
+          </div>
+          <a href="index.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            Sign Out
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="user-dashboard">
+    <div class="container">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <h1><i class="fas fa-heart"></i> Welcome back, <span class="highlight">Ahmed</span>!</h1>
+        <p class="subtitle">Manage your recipes, favorites, and community interactions.</p>
+      </section>
+
+      <!-- User Profile Card -->
+      <div class="user-layout">
+        <aside class="user-sidebar">
+          <div class="profile-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <img src="assets/img/usericon.png" alt="User Avatar">
+                <span class="online-status"></span>
+              </div>
+              <h2>Ahmed Al-Mansoori</h2>
+              <p class="user-email">ahmed@nutrinest.com</p>
+              <div class="user-badge">
+                <i class="fas fa-award"></i> Premium Member
+              </div>
+            </div>
+            
+            <div class="profile-stats">
+              <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">My Recipes</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">347</div>
+                <div class="stat-label">Total Likes</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">28</div>
+                <div class="stat-label">Favorites</div>
+              </div>
+            </div>
+            
+            <div class="profile-actions">
+              <a href="my-recipes.html" class="btn-action">
+                <i class="fas fa-utensils"></i> My Recipes
+              </a>
+              <a href="add-recipe.html" class="btn-action btn-primary">
+                <i class="fas fa-plus-circle"></i> Add New Recipe
+              </a>
+            </div>
+          </div>
+        </aside>
+
+        <div class="user-main">
+          <!-- Filter Section -->
+          <div class="filter-section">
+            <div class="filter-header">
+              <h2><i class="fas fa-filter"></i> Browse All Recipes</h2>
+              <div class="filter-controls">
+                <select class="category-filter">
+                  <option value="all">All Categories</option>
+                  <option value="main">Main Dishes</option>
+                  <option value="dessert">Desserts</option>
+                  <option value="snack">Snacks</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="vegan">Vegan</option>
+                </select>
+                <button class="btn-filter">
+                  <i class="fas fa-sliders-h"></i> Filter
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- All Recipes Table -->
+          <div class="table-container">
+            <table class="recipes-table">
+              <thead>
+                <tr>
+                  <th>Recipe Name</th>
+                  <th>Photo</th>
+                  <th>Creator</th>
+                  <th>Likes</th>
+                  <th>Category</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="recipe-name">
+                    <a href="view-recipe.html">Mediterranean Chicken Salad</a>
+                    <div class="recipe-tags">
+                      <span class="tag healthy"><i class="fas fa-leaf"></i> Healthy</span>
+                      <span class="tag quick"><i class="fas fa-bolt"></i> Quick</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="recipe-photo">
+                      <img src="assets/img/ch.jpg" alt="Mediterranean Chicken Salad">
+                    </div>
+                  </td>
+                  <td class="creator-cell">
+                    <div class="creator-info">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Creator">
+                      <span>Ali Hassan</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="likes-count">
+                      <i class="fas fa-heart"></i>
+                      <span>58</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="category-badge main">Main Dish</span>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="recipe-name">
+                    <a href="view-recipe.html">Low-Carb Strawberry Cheesecake</a>
+                    <div class="recipe-tags">
+                      <span class="tag low-carb"><i class="fas fa-apple-alt"></i> Low Carb</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="recipe-photo">
+                      <img src="assets/img/str.jpg" alt="Strawberry Cheesecake">
+                    </div>
+                  </td>
+                  <td class="creator-cell">
+                    <div class="creator-info">
+                      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Creator">
+                      <span>Sara Mohammed</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="likes-count">
+                      <i class="fas fa-heart"></i>
+                      <span>40</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="category-badge dessert">Dessert</span>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="recipe-name">
+                    <a href="view-recipe.html">High-Protein Snack Bowl</a>
+                    <div class="recipe-tags">
+                      <span class="tag protein"><i class="fas fa-dumbbell"></i> High Protein</span>
+                      <span class="tag vegan"><i class="fas fa-seedling"></i> Vegan</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="recipe-photo">
+                      <img src="assets/img/pro.jpg" alt="Protein Bowl">
+                    </div>
+                  </td>
+                  <td class="creator-cell">
+                    <div class="creator-info">
+                      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Creator">
+                      <span>Omar Khalid</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="likes-count">
+                      <i class="fas fa-heart"></i>
+                      <span>22</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="category-badge snack">Snack</span>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="recipe-name">
+                    <a href="view-recipe.html">Avocado Toast Supreme</a>
+                    <div class="recipe-tags">
+                      <span class="tag healthy"><i class="fas fa-leaf"></i> Healthy</span>
+                      <span class="tag quick"><i class="fas fa-bolt"></i> Quick</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="recipe-photo">
+                      <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avocado Toast">
+                    </div>
+                  </td>
+                  <td class="creator-cell">
+                    <div class="creator-info">
+                      <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Creator">
+                      <span>Layla Ahmed</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="likes-count">
+                      <i class="fas fa-heart"></i>
+                      <span>89</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="category-badge breakfast">Breakfast</span>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td class="recipe-name">
+                    <a href="view-recipe.html">Quinoa Power Bowl</a>
+                    <div class="recipe-tags">
+                      <span class="tag vegan"><i class="fas fa-seedling"></i> Vegan</span>
+                      <span class="tag gluten-free"><i class="fas fa-bread-slice"></i> Gluten Free</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="recipe-photo">
+                      <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Quinoa Bowl">
+                    </div>
+                  </td>
+                  <td class="creator-cell">
+                    <div class="creator-info">
+                      <img src="assets/img/usericon.png" alt="Creator">
+                      <span>Fatima Al-Zahra</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="likes-count">
+                      <i class="fas fa-heart"></i>
+                      <span>67</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="category-badge vegan">Vegan</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Favorites Section -->
+          <div class="favorites-section">
+            <div class="section-header">
+              <h2><i class="fas fa-star"></i> My Favorite Recipes</h2>
+              <p class="section-subtitle">Recipes you've saved for later</p>
+            </div>
+            
+            <div class="favorites-grid">
+              <div class="favorite-card">
+                <div class="favorite-image">
+                  <img src="assets/img/ch.jpg" alt="Chicken Salad">
+                  <button class="remove-favorite" title="Remove from favorites">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="favorite-content">
+                  <h3>Mediterranean Chicken Salad</h3>
+                  <div class="favorite-meta">
+                    <span><i class="fas fa-user"></i> Ali Hassan</span>
+                    <span><i class="fas fa-heart"></i> 58 likes</span>
+                  </div>
+                  <a href="view-recipe.html" class="view-recipe">View Recipe →</a>
+                </div>
+              </div>
+              
+              <div class="favorite-card">
+                <div class="favorite-image">
+                  <img src="assets/img/str.jpg" alt="Cheesecake">
+                  <button class="remove-favorite" title="Remove from favorites">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="favorite-content">
+                  <h3>Low-Carb Strawberry Cheesecake</h3>
+                  <div class="favorite-meta">
+                    <span><i class="fas fa-user"></i> Sara Mohammed</span>
+                    <span><i class="fas fa-heart"></i> 40 likes</span>
+                  </div>
+                  <a href="view-recipe.html" class="view-recipe">View Recipe →</a>
+                </div>
+              </div>
+              
+              <div class="favorite-card">
+                <div class="favorite-image">
+                  <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Smoothie Bowl">
+                  <button class="remove-favorite" title="Remove from favorites">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <div class="favorite-content">
+                  <h3>Tropical Smoothie Bowl</h3>
+                  <div class="favorite-meta">
+                    <span><i class="fas fa-user"></i> Mohammed Ali</span>
+                    <span><i class="fas fa-heart"></i> 112 likes</span>
+                  </div>
+                  <a href="view-recipe.html" class="view-recipe">View Recipe →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>© 2026 NutriNest — IT329 Phase 1</p>
+          <p>User Dashboard • Recipe Management</p>
+        </div>
+        <div class="footer-right">
+          <a href="#" class="footer-link">Help Center</a>
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <script src="assets/js/main2.js"></script>
+  <script src="assets/js/user.js"></script>
+  // في نهاية ملف user.html أو في user.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Get current user from localStorage
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (currentUser) {
+        // Update welcome message
+        const welcomeElement = document.querySelector('.welcome-section h1');
+        if (welcomeElement) {
+            const name = currentUser.name.split(' ')[0]; // Get first name
+            welcomeElement.innerHTML = `<i class="fas fa-heart"></i> مرحباً بعودتك، <span class="highlight">${name}</span>!`;
+        }
+        
+        // Update profile info
+        const profileName = document.querySelector('.profile-header h2');
+        if (profileName) {
+            profileName.textContent = currentUser.name;
+        }
+        
+        const profileEmail = document.querySelector('.user-email');
+        if (profileEmail) {
+            profileEmail.textContent = currentUser.email;
+        }
+        
+        // Get full user data from users list
+        const users = JSON.parse(localStorage.getItem('nutrinestUsers') || '[]');
+        const userData = users.find(u => u.id === currentUser.id);
+        
+        if (userData) {
+            // Update profile image if exists
+            if (userData.profileImage) {
+                const profileImg = document.querySelector('.profile-avatar img');
+                if (profileImg) {
+                    // In real app, you would use the actual image URL
+                    // For now, we'll use a default based on name
+                    profileImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(userData.name)}&background=10b981&color=fff&size=100`;
+                }
+            }
+        }
+    } else {
+        // Redirect to login if no user is logged in
+        window.location.href = 'login.html';
+    }
+    
+    // ... باقي الكود ...
+});
+</body>
+</html>

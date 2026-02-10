@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriNest | إنشاء حساب</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #3b82f6;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .auth-wrapper {
+            width: 100%;
+            max-width: 480px;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+        }
+        
+        .logo-text span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .auth-header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+        
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .auth-form {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .input-with-icon input {
+            padding-right: 50px !important;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: var(--light);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .password-strength {
+            margin-top: 10px;
+        }
+        
+        .strength-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+        
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .strength-text {
+            font-size: 12px;
+            color: var(--gray);
+            display: block;
+        }
+        
+        .password-requirements {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .password-requirements h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+        
+        .requirement {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: var(--gray);
+        }
+        
+        .requirement i {
+            font-size: 12px;
+        }
+        
+        .requirement.valid {
+            color: var(--success);
+        }
+        
+        .requirement.invalid {
+            color: var(--danger);
+        }
+        
+        .file-upload {
+            position: relative;
+            margin-top: 8px;
+        }
+        
+        .file-upload input {
+            display: none;
+        }
+        
+        .file-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            justify-content: center;
+        }
+        
+        .file-label:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .file-name {
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 8px;
+            display: block;
+        }
+        
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            margin: 15px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+        
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-checkbox input {
+            margin-top: 4px;
+        }
+        
+        .form-checkbox label {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .form-checkbox a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .form-checkbox a:hover {
+            color: var(--secondary);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        .auth-footer {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .auth-footer p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .switch-auth {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .switch-auth:hover {
+            color: var(--secondary);
+        }
+        
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-home:hover {
+            color: var(--light);
+        }
+        
+        .floating-element {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+        }
+        
+        .floating-element:nth-child(2) {
+            bottom: 10%;
+            right: 10%;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 0;
+            left: 0;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: var(--gray);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active .step-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .step.completed .step-icon {
+            background: var(--success);
+            color: white;
+        }
+        
+        .step-text {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        .step.active .step-text {
+            color: var(--light);
+            font-weight: 600;
+        }
+        
+        .form-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--light);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-btn.next {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .success-message {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 20px;
+            animation: bounce 1s ease;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .success-message h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .success-message p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 30px 20px;
+            }
+            
+            .progress-steps {
+                margin-bottom: 20px;
+            }
+            
+            .step-text {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <div class="auth-wrapper">
+        <div class="auth-header">
+            <div class="logo-container">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nutri<span>Nest</span></div>
+            </div>
+            <h1>أنشئ حساب جديد</h1>
+            <p>انضم إلى مجتمعنا الصحي</p>
+        </div>
+        
+        <div class="auth-card">
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-icon">1</div>
+                    <div class="step-text">المعلومات الأساسية</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-icon">2</div>
+                    <div class="step-text">كلمة المرور</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-icon">3</div>
+                    <div class="step-text">الصورة الشخصية</div>
+                </div>
+            </div>
+            
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h2 id="welcomeName">مرحباً، [الاسم]!</h2>
+                <p>تم إنشاء حسابك بنجاح ✓</p>
+                <button class="submit-btn" onclick="redirectToDashboard()">
+                    <i class="fas fa-arrow-left"></i>
+                    الانتقال للصفحة الرئيسية
+                </button>
+            </div>
+            
+            <!-- Multi-Step Form -->
+            <form class="auth-form" id="signup-form">
+                <!-- Step 1: Basic Info -->
+                <div class="form-section active" data-step="1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">
+                                <i class="fas fa-user"></i>
+                                الاسم الأول
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="text" id="firstName" class="form-control" placeholder="ادخل اسمك الأول" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">
+                                <i class="fas fa-user"></i>
+                                اسم العائلة
+                            </label>
+                            <div class="input-with-icon">
+                                <input type="text" id="lastName" class="form-control" placeholder="ادخل اسم العائلة" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            البريد الإلكتروني
+                        </label>
+                        <div class="input-with-icon">
+                            <input type="email" id="email" class="form-control" placeholder="example@nutrinest.com" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <div></div>
+                        <button type="button" class="nav-btn next" onclick="nextStep(2)">
+                            التالي
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Password -->
+                <div class="form-section" data-step="2">
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i>
+                            كلمة المرور
+                        </label>
+                        <div class="input-with-icon">
+                            <input type="password" id="password" class="form-control" placeholder="أنشئ كلمة مرور قوية" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        
+                        <div class="password-strength">
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span class="strength-text" id="strengthText">قوة كلمة المرور</span>
+                        </div>
+                        
+                        <div class="password-requirements">
+                            <h4>متطلبات كلمة المرور:</h4>
+                            <div class="requirement" id="reqLength">
+                                <i class="fas fa-circle"></i>
+                                <span>8 أحرف على الأقل</span>
+                            </div>
+                            <div class="requirement" id="reqUppercase">
+                                <i class="fas fa-circle"></i>
+                                <span>حرف كبير واحد على الأقل</span>
+                            </div>
+                            <div class="requirement" id="reqLowercase">
+                                <i class="fas fa-circle"></i>
+                                <span>حرف صغير واحد على الأقل</span>
+                            </div>
+                            <div class="requirement" id="reqNumber">
+                                <i class="fas fa-circle"></i>
+                                <span>رقم واحد على الأقل</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">
+                            <i class="fas fa-lock"></i>
+                            تأكيد كلمة المرور
+                        </label>
+                        <div class="input-with-icon">
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div id="passwordMatch" class="strength-text"></div>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="nav-btn" onclick="prevStep(1)">
+                            <i class="fas fa-arrow-right"></i>
+                            السابق
+                        </button>
+                        <button type="button" class="nav-btn next" onclick="nextStep(3)">
+                            التالي
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Profile Image -->
+                <div class="form-section" data-step="3">
+                    <div class="form-group">
+                        <label for="profileImage">
+                            <i class="fas fa-image"></i>
+                            الصورة الشخصية (اختياري)
+                        </label>
+                        <div class="file-upload">
+                            <input type="file" id="profileImage" accept="image/*">
+                            <label for="profileImage" class="file-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                اختر صورة
+                            </label>
+                            <span class="file-name" id="fileName">لم يتم اختيار أي ملف</span>
+                        </div>
+                        
+                        <div class="image-preview" id="imagePreview">
+                            <img src="" alt="معاينة الصورة">
+                        </div>
+                        
+                        <p style="text-align: center; color: var(--gray); font-size: 13px; margin-top: 10px;">
+                            إذا لم ترفع صورة، سيتم استخدام صورة افتراضية
+                        </p>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            أوافق على <a href="#">شروط الخدمة</a> و <a href="#">سياسة الخصوصية</a>
+                        </label>
+                    </div>
+                    
+                    <div class="form-navigation">
+                        <button type="button" class="nav-btn" onclick="prevStep(2)">
+                            <i class="fas fa-arrow-right"></i>
+                            السابق
+                        </button>
+                        <button type="submit" class="nav-btn next" id="submitBtn">
+                            إنشاء الحساب
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="auth-footer" id="authFooter">
+                <p>لديك حساب بالفعل؟ <a href="login.html" class="switch-auth">سجل الدخول الآن</a></p>
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للرئيسية
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Current step
+        let currentStep = 1;
+        let userData = {};
+        
+        // Step navigation
+        function nextStep(step) {
+            // Validate current step before proceeding
+            if (!validateStep(currentStep)) {
+                return;
+            }
+            
+            // Hide current step
+            document.querySelector(`[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.remove('active');
+            
+            // Show next step
+            document.querySelector(`[data-step="${step}"]`).classList.add('active');
+            document.querySelector(`.form-section[data-step="${step}"]`).classList.add('active');
+            
+            // Update progress steps
+            document.querySelectorAll('.step').forEach(s => {
+                if (parseInt(s.dataset.step) < step) {
+                    s.classList.add('completed');
+                } else if (parseInt(s.dataset.step) > step) {
+                    s.classList.remove('completed');
+                }
+            });
+            
+            currentStep = step;
+        }
+        
+        function prevStep(step) {
+            // Hide current step
+            document.querySelector(`[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`.form-section[data-step="${currentStep}"]`).classList.remove('active');
+            
+            // Show previous step
+            document.querySelector(`[data-step="${step}"]`).classList.add('active');
+            document.querySelector(`.form-section[data-step="${step}"]`).classList.add('active');
+            
+            currentStep = step;
+        }
+        
+        // Step validation
+        function validateStep(step) {
+            switch(step) {
+                case 1:
+                    const firstName = document.getElementById('firstName').value.trim();
+                    const lastName = document.getElementById('lastName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    
+                    if (!firstName || !lastName || !email) {
+                        alert('الرجاء ملء جميع الحقول المطلوبة');
+                        return false;
+                    }
+                    
+                    if (!validateEmail(email)) {
+                        alert('الرجاء إدخال بريد إلكتروني صحيح');
+                        return false;
+                    }
+                    
+                    // Save data
+                    userData.firstName = firstName;
+                    userData.lastName = lastName;
+                    userData.email = email;
+                    userData.fullName = `${firstName} ${lastName}`;
+                    
+                    return true;
+                    
+                case 2:
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    
+                    if (!password || !confirmPassword) {
+                        alert('الرجاء ملء جميع الحقول المطلوبة');
+                        return false;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        alert('كلمتا المرور غير متطابقتين');
+                        return false;
+                    }
+                    
+                    if (!validatePassword(password)) {
+                        alert('كلمة المرور لا تلبي المتطلبات');
+                        return false;
+                    }
+                    
+                    // Save data
+                    userData.password = password;
+                    
+                    return true;
+                    
+                default:
+                    return true;
+            }
+        }
+        
+        // Email validation
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        // Password validation
+        function validatePassword(password) {
+            const minLength = password.length >= 8;
+            const hasUppercase = /[A-Z]/.test(password);
+            const hasLowercase = /[a-z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            
+            return minLength && hasUppercase && hasLowercase && hasNumber;
+        }
+        
+        // Password strength checker
+        document.getElementById('password').addEventListener('input', function() {
+            const password = this.value;
+            const strengthFill = document.getElementById('strengthFill');
+            const strengthText = document.getElementById('strengthText');
+            
+            // Calculate strength
+            let strength = 0;
+            let color = '#ef4444'; // Red
+            
+            // Check requirements
+            const requirements = {
+                length: password.length >= 8,
+                uppercase: /[A-Z]/.test(password),
+                lowercase: /[a-z]/.test(password),
+                number: /\d/.test(password)
+            };
+            
+            // Update requirement indicators
+            Object.keys(requirements).forEach((req, index) => {
+                const element = document.getElementById(`req${req.charAt(0).toUpperCase() + req.slice(1)}`);
+                if (requirements[req]) {
+                    element.classList.add('valid');
+                    element.classList.remove('invalid');
+                    element.querySelector('i').className = 'fas fa-check-circle';
+                    strength += 25;
+                } else {
+                    element.classList.add('invalid');
+                    element.classList.remove('valid');
+                    element.querySelector('i').className = 'fas fa-times-circle';
+                }
+            });
+            
+            // Update strength bar
+            strengthFill.style.width = `${strength}%`;
+            
+            // Update text and color
+            if (strength < 50) {
+                strengthText.textContent = 'ضعيفة';
+                strengthText.style.color = '#ef4444';
+                strengthFill.style.background = '#ef4444';
+            } else if (strength < 75) {
+                strengthText.textContent = 'متوسطة';
+                strengthText.style.color = '#f59e0b';
+                strengthFill.style.background = '#f59e0b';
+            } else {
+                strengthText.textContent = 'قوية';
+                strengthText.style.color = '#10b981';
+                strengthFill.style.background = '#10b981';
+            }
+            
+            // Check password match
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const matchText = document.getElementById('passwordMatch');
+            
+            if (confirmPassword) {
+                if (password === confirmPassword) {
+                    matchText.textContent = 'كلمتا المرور متطابقتان ✓';
+                    matchText.style.color = '#10b981';
+                } else {
+                    matchText.textContent = 'كلمتا المرور غير متطابقتان ✗';
+                    matchText.style.color = '#ef4444';
+                }
+            }
+        });
+        
+        // Confirm password check
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            const matchText = document.getElementById('passwordMatch');
+            
+            if (password && confirmPassword) {
+                if (password === confirmPassword) {
+                    matchText.textContent = 'كلمتا المرور متطابقتان ✓';
+                    matchText.style.color = '#10b981';
+                } else {
+                    matchText.textContent = 'كلمتا المرور غير متطابقتان ✗';
+                    matchText.style.color = '#ef4444';
+                }
+            }
+        });
+        
+        // File upload preview
+        document.getElementById('profileImage').addEventListener('change', function(e) {
+            const file = this.files[0];
+            const fileName = document.getElementById('fileName');
+            const imagePreview = document.getElementById('imagePreview');
+            const previewImg = imagePreview.querySelector('img');
+            
+            if (file) {
+                fileName.textContent = file.name;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImg.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+                
+                // Save file data
+                userData.profileImage = file.name;
+            } else {
+                fileName.textContent = 'لم يتم اختيار أي ملف';
+                imagePreview.style.display = 'none';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate final step
+            if (!validateStep(currentStep)) {
+                return;
+            }
+            
+            // Check terms agreement
+            if (!document.getElementById('terms').checked) {
+                alert('الرجاء الموافقة على الشروط والأحكام');
+                return;
+            }
+            
+            // Save user data to localStorage
+            const user = {
+                id: Date.now(),
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                fullName: userData.fullName,
+                email: userData.email,
+                password: userData.password, // In real app, hash this!
+                profileImage: userData.profileImage || null,
+                createdAt: new Date().toISOString(),
+                type: 'user',
+                recipes: [],
+                favorites: []
+            };
+            
+            // Save to localStorage
+            let users = JSON.parse(localStorage.getItem('nutrinestUsers') || '[]');
+            users.push(user);
+            localStorage.setItem('nutrinestUsers', JSON.stringify(users));
+            
+            // Set as current user
+            localStorage.setItem('currentUser', JSON.stringify({
+                id: user.id,
+                name: user.fullName,
+                email: user.email,
+                type: user.type
+            }));
+            
+            // Show success message
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('authFooter').style.display = 'none';
+            document.querySelector('.progress-steps').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('welcomeName').textContent = `مرحباً، ${user.firstName}!`;
+            
+            // Auto-redirect after 5 seconds
+            setTimeout(() => {
+                redirectToDashboard();
+            }, 5000);
+        });
+        
+        function redirectToDashboard() {
+            window.location.href = 'user.html';
+        }
+        
+        // Initialize form
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check password requirements on load
+            document.getElementById('password').dispatchEvent(new Event('input'));
+        });
+    </script>
+</body>
+</html>
