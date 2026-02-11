@@ -22,7 +22,8 @@
         <button>🚩 Report</button>
     </div>
 
-  <table class="my-recipes-table">
+ <table class="my-recipes-table">
+  <thead>
     <tr>
       <th>Recipe</th>
       <th>Recipe Creator</th>
@@ -32,15 +33,21 @@
       <th>Video</th>
       <th>Comments</th>
     </tr>
+  </thead>
 
-    <tr>  
+  <tbody>
+    <tr>
       <td>
-        <strong>Chicken</strong><br><br>
-        <img src="assets/img/ch.jpg" width="200">
+        <a href="#" class="recipe-cell">
+          <img src="assets/img/ch.jpg" alt="Chicken">
+          <div>
+            <strong>Chicken</strong>
+          </div>
+        </a>
       </td>
-    
+
       <td class="creator">
-        <img src="assets/img/usericon.png" width="40">
+        <img src="assets/img/usericon.png" width="40" alt="creator">
         Sarah Ahmed
       </td>
 
@@ -78,10 +85,10 @@
           <button type="submit">Add Comment</button>
         </form>
       </td>
+    </tr>
+  </tbody>
+</table>
 
-          </tr>
-
-  </table>
 </div>
 
 <script src="assets/js/user.js"></script>
