@@ -677,11 +677,11 @@
   color: #ef4444;
 }
 /* ===============================
-   View Recipe – Final Clean Style
+   View Recipe Style
 ================================ */
 
 .view-recipe-figure {
-  max-width: 950px;
+  max-width: 740px;
   margin: 40px auto;
 }
 
@@ -822,10 +822,11 @@
 }
 
 .vr-comment img {
-  width: 5px;
-  height: 5px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
 }
+
 
 
 
