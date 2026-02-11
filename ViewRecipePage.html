@@ -7,42 +7,42 @@
   <link rel="stylesheet" href="assets/css/style1.css">
   <link rel="stylesheet" href="assets/css/user.css">
 </head>
+
 <body>
+<div class="container view-recipe-page">
 
-<div class="container view-recipe">
+  <!-- Recipe Name -->
+  <h1 class="recipe-title">Recipe 1</h1>
 
-  <!-- Title -->
-  <h1>Main Dish</h1>
-
-  <!-- Actions -->
-  <div class="recipe-actions">
-    <button>Add to Favourites</button>
-    <button>Like</button>
-    <button>Report</button>
+  <!-- Action Buttons -->
+  <div class="recipe-actions-vertical">
+    <button>🤍 Add to favourites</button>
+    <button>👍 Like recipe</button>
+    <button>🚩 Report recipe</button>
   </div>
 
-  <!-- Image -->
-  <img src="assets/img/ch.jpg" class="recipe-image" alt="recipe photo">
+  <!-- Recipe Photo -->
+  <img src="assets/img/ch.jpg" alt="recipe photo" class="recipe-photo">
 
-  <!-- Creator -->
-  <div class="recipe-section">
-    <h3>Recipe Creator</h3>
-    <p>
-      <img src="assets/img/usericon.png" width="40">
+  <!-- Recipe Creator -->
+  <div class="recipe-box">
+    <h3>Recipe Creator:</h3>
+    <p class="creator">
+      <img src="assets/img/usericon.png">
       Sarah Ahmed
     </p>
   </div>
 
   <!-- Details -->
-  <div class="recipe-section">
-    <h3>Details</h3>
+  <div class="recipe-box">
+    <h3>Details:</h3>
     <p><strong>Category:</strong> Main Dish</p>
     <p>Healthy and delicious recipe.</p>
   </div>
 
   <!-- Ingredients -->
-  <div class="recipe-section">
-    <h3>Ingredients</h3>
+  <div class="recipe-box">
+    <h3>Ingredients:</h3>
     <ul>
       <li>Chicken – 200g</li>
       <li>Broccoli – 1 cup</li>
@@ -50,8 +50,8 @@
   </div>
 
   <!-- Instructions -->
-  <div class="recipe-section">
-    <h3>Instructions</h3>
+  <div class="recipe-box">
+    <h3>Instructions:</h3>
     <ol>
       <li>Cook chicken</li>
       <li>Serve hot</li>
@@ -59,20 +59,19 @@
   </div>
 
   <!-- Video -->
-  <div class="recipe-section">
-    <h3>Video</h3>
+  <div class="recipe-box">
+    <h3>Video:</h3>
     <a href="https://youtube.com" target="_blank">Watch Video</a>
   </div>
 
   <!-- Comments -->
-  <div class="recipe-section comments">
-    <h3>Comments</h3>
+  <div class="recipe-box">
+    <h3>Comments:</h3>
 
     <div class="comments-list">
-      <div class="comment">
-        <img src="assets/img/usericon.png">
-        <p><strong>Ali:</strong> Great recipe!</p>
-      </div>
+      <p>
+️👤 Ali: Great recipe!</p>
+      <p>👤 Noor: Very easy and tasty.</p>
     </div>
 
     <form class="comment-form">
