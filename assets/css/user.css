@@ -704,8 +704,10 @@
 
 /* Recipe image inside table */
 .my-recipes-table td img {
-  border-radius: var(--radius-md);
+  width: 70px;
+  height: 70px;
   object-fit: cover;
+  border-radius: var(--radius-md);
 }
 
 /* Creator cell */
@@ -715,9 +717,7 @@
   gap: 10px;
 }
 
-.creator img {
-  border-radius: 50%;
-}
+
 
 /* Lists inside table */
 .my-recipes-table ul,
@@ -760,5 +760,6 @@
   font-weight: 600;
   cursor: pointer;
 }
+
 
 
