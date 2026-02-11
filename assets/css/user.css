@@ -710,4 +710,14 @@
   border: none;
 }
 
+.comment-form button {
+  background: var(--gradient-1);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  cursor: pointer;
+}
+
 
