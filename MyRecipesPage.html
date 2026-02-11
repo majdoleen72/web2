@@ -1,98 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Recipes</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>My Recipes</title>
+
+  <!-- Main Style -->
+  <link rel="stylesheet" href="assets/css/style1.css">
+  <link rel="stylesheet" href="assets/css/user.css">
 </head>
 <body>
 
-<header>
-    <h1>My Recipes</h1>
-    <a href="AddRecipePage.html">➕ Add New Recipe</a>
-</header>
+<div class="container user-dashboard">
 
-<table border="1" cellpadding="10">
+  <!-- Header -->
+  <div class="my-recipes-header">
+    <h1>My Recipes</h1>
+    <a href="AddRecipePage.html" class="add-recipe-btn">➕ Add New Recipe</a>
+  </div>
+
+  <!-- Table -->
+  <table class="my-recipes-table">
     <thead>
-        <tr>
-            <th>Recipe</th>
-            <th>Ingredients</th>
-            <th>Instructions</th>
-            <th>Video</th>
-            <th>Number of Likes</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
+      <tr>
+        <th>Recipe</th>
+        <th>Ingredients</th>
+        <th>Instructions</th>
+        <th>Video</th>
+        <th>Likes</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>
-                <a href="ViewRecipePage.html">
-                    Recipe1 <br>
-                    <img src="images/recipe1.jpg" alt="recipe photo" width="80">
-                </a>
-            </td>
+      <tr>
+        <td>
+          <a href="ViewRecipePage.html" class="recipe-cell">
+            <img src="assets/img/ch.jpg" alt="recipe">
+            <span>Recipe 1</span>
+          </a>
+        </td>
 
-            <td>
-                <ul>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </td>
+        <td>
+          <ul>
+            <li>Chicken – 200g</li>
+            <li>Broccoli – 1 cup</li>
+          </ul>
+        </td>
 
-            <td>
-                <ol>
-                    <li></li>
-                    <li></li>
-                </ol>
-            </td>
+        <td>
+          <ol>
+            <li>Cook chicken</li>
+            <li>Mix ingredients</li>
+          </ol>
+        </td>
 
-            <td>
-                <a href="">Video Link</a>
-            </td>
+        <td>
+          <a href="#">Video Link</a>
+        </td>
 
-            <td>22</td>
+        <td>22</td>
 
-            <td>
-                <a href="EditRecipePage.html">Edit</a>
-            </td>
+        <td>
+          <a href="EditRecipePage.html" class="action-link edit">Edit</a>
+        </td>
 
-            <td>
-                <a href="MyRecipesPage.html">Delete</a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <a href="ViewRecipePage.html">
-                    Recipe 2 <br>
-                    <img src="images/recipe2.jpg" alt="recipe photo" width="80">
-                </a>
-            </td>
-
-            <td>
-                <ul>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </td>
-
-            <td>
-                <ol>
-                    <li></li>
-                    <li></li>
-                </ol>
-            </td>
-
-            <td></td>
-            <td>10</td>
-            <td><a href="EditRecipePage.html">Edit</a></td>
-            <td><a href="MyRecipesPage.html">Delete</a></td>
-        </tr>
+        <td>
+          <a href="#" class="action-link delete delete-recipe">Delete</a>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
 
+</div>
+
+<script src="assets/js/user.js"></script>
 </body>
 </html>
-
