@@ -914,21 +914,20 @@ body::before {
   box-shadow: var(--shadow-glow);
 }
 
-body {
-  padding-top: 100px;
-}
-
-.logo-text {
+.logotext {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.5px;
 }
 
-.logo-text span {
+.logotext span {
   background: var(--gradient-1);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+body {
+  padding-top: 100px;
 }
 
 
