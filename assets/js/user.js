@@ -146,3 +146,8 @@ if (addBtn) {
   });
 }
 
+//welcome mesage 
+
+const name = document.getElementById("firstname").value;
+document.querySelector(".firstname").innerHTML = name;
+
