@@ -9,88 +9,87 @@
 </head>
 
 <body>
+  <div class="container view-recipe-figure">
 
-<div class="container user-dashboard">
-  <h1>View Recipe</h1>
+    <!-- Top: Name + Actions -->
+    <div class="vr-top">
+      <h1 class="vr-title">Chicken</h1>
 
-
-    <!-- Action Buttons -->
-    <div class="actions-row">
-      
-        <button>🤍 Add to favourites</button>
-        <button>👍 Like</button>
-        <button>🚩 Report</button>
+      <div class="vr-actions">
+        <button class="vr-btn">🤍 Add to favourites</button>
+        <button class="vr-btn">👍 Like recipe</button>
+        <button class="vr-btn">🚩 Report recipe</button>
+      </div>
     </div>
 
- <table class="my-recipes-table">
-  <thead>
-    <tr>
-      <th>Recipe</th>
-      <th>Recipe Creator</th>
-      <th>Details</th>
-      <th>Ingredients</th>
-      <th>Instructions</th>
-      <th>Video</th>
-      <th>Comments</th>
-    </tr>
-  </thead>
+    <!-- Photo -->
+    <div class="vr-box vr-photo-box">
+      <img src="assets/img/ch.jpg" alt="recipe photo" class="vr-photo">
+    </div>
 
-  <tbody>
-    <tr>
-      <td>
-        <a href="#" class="recipe-cell">
-          <img src="assets/img/ch.jpg" alt="Chicken">
-          <div>
-            <strong>Chicken</strong>
-          </div>
-        </a>
-      </td>
+    <!-- Creator -->
+    <div class="vr-box">
+      <h3 class="vr-heading">Recipe Creator:</h3>
+      <div class="vr-creator">
+        <img src="assets/img/usericon.png" alt="creator" class="vr-avatar">
+        <span>Sarah Ahmed</span>
+      </div>
+    </div>
 
-      <td class="creator">
-        <img src="assets/img/usericon.png" width="40" alt="creator">
-        Sarah Ahmed
-      </td>
+    <!-- Details -->
+    <div class="vr-box">
+      <h3 class="vr-heading">Details:</h3>
+      <p><strong>Category:</strong> Main Dish</p>
+      <p>Healthy and delicious recipe.</p>
+    </div>
 
-      <td>
-        <strong>Category:</strong> Main Dish<br>
-        Healthy and delicious recipe.
-      </td>
+    <!-- Ingredients -->
+    <div class="vr-box">
+      <h3 class="vr-heading">Ingredients:</h3>
+      <ul class="vr-list">
+        <li>Chicken – 200g</li>
+        <li>Broccoli – 1 cup</li>
+      </ul>
+    </div>
 
-      <td>
-        <ul>
-          <li>Chicken – 200g</li>
-          <li>Broccoli – 1 cup</li>
-        </ul>
-      </td>
+    <!-- Instructions -->
+    <div class="vr-box">
+      <h3 class="vr-heading">Instructions:</h3>
+      <ol class="vr-list">
+        <li>Cook chicken</li>
+        <li>Serve hot</li>
+      </ol>
+    </div>
 
-      <td>
-        <ol>
-          <li>Cook chicken</li>
-          <li>Serve hot</li>
-        </ol>
-      </td>
+    <!-- Video (إذا ما عندك فيديو احذفي هذا البلوك كامل) -->
+    <div class="vr-box">
+      <h3 class="vr-heading">Video:</h3>
+      <a href="#" target="_blank">Watch Video</a>
+    </div>
 
-      <td>
-        <a href="#" target="_blank">Watch Video</a>
-      </td>
+    <!-- Comments -->
+    <div class="vr-box">
+      <h3 class="vr-heading">Comments:</h3>
 
-      <td>
-        <div class="comments-list">
-          <p><strong>Ali:</strong> Great recipe!</p>
-          <p><strong>Noor:</strong> Very easy and tasty.</p>
+      <div class="vr-comment-input">
+        <textarea class="vr-textarea" placeholder="Write a comment..." required></textarea>
+        <button class="vr-add-comment" type="button">Add Comment</button>
+      </div>
+
+      <div class="vr-comments-list">
+        <div class="vr-comment">
+          <img src="assets/img/usericon.png" class="vr-avatar-sm" alt="user">
+          <div><strong>Ali:</strong> Great recipe!</div>
         </div>
+        <div class="vr-comment">
+          <img src="assets/img/usericon.png" class="vr-avatar-sm" alt="user">
+          <div><strong>Noor:</strong> Very easy and tasty.</div>
+        </div>
+      </div>
+    </div>
 
-        <form class="comment-form">
-          <textarea placeholder="Write a comment..." required></textarea><br>
-          <button type="submit">Add Comment</button>
-        </form>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  </div>
 
-</div>
-
-<script src="assets/js/user.js"></script>
+  <script src="assets/js/user.js"></script>
 </body>
 </html>
