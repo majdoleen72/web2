@@ -4,92 +4,106 @@
   <meta charset="UTF-8">
   <title>View Recipe</title>
 
+  <!-- Main styles -->
   <link rel="stylesheet" href="assets/css/style1.css">
   <link rel="stylesheet" href="assets/css/user.css">
+
+  <!-- Font Awesome (for professional icons) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-  <div class="container view-recipe-figure">
 
-    <!-- Top: Name + Actions -->
-    <div class="vr-top">
-      <h1 class="vr-title">Chicken</h1>
+<div class="container view-recipe-figure">
 
-      <div class="vr-actions">
-        <button class="vr-btn">🤍 Add to favourites</button>
-        <button class="vr-btn">👍 Like recipe</button>
-        <button class="vr-btn">🚩 Report recipe</button>
-      </div>
+  <!-- Top: Recipe name + actions -->
+  <div class="vr-top-clean">
+    <h1 class="vr-title-clean">Chicken</h1>
+
+    <div class="vr-actions">
+      <button class="vr-btn">
+        <i class="fa-regular fa-heart"></i>
+        Add to favourites
+      </button>
+      <button class="vr-btn">
+        <i class="fa-regular fa-thumbs-up"></i>
+        Like recipe
+      </button>
+      <button class="vr-btn">
+        <i class="fa-regular fa-flag"></i>
+        Report recipe
+      </button>
     </div>
-
-    <!-- Photo -->
-    <div class="vr-box vr-photo-box">
-      <img src="assets/img/ch.jpg" alt="recipe photo" class="vr-photo">
-    </div>
-
-    <!-- Creator -->
-    <div class="vr-box">
-      <h3 class="vr-heading">Recipe Creator:</h3>
-      <div class="vr-creator">
-        <img src="assets/img/usericon.png" alt="creator" class="vr-avatar">
-        <span>Sarah Ahmed</span>
-      </div>
-    </div>
-
-    <!-- Details -->
-    <div class="vr-box">
-      <h3 class="vr-heading">Details:</h3>
-      <p><strong>Category:</strong> Main Dish</p>
-      <p>Healthy and delicious recipe.</p>
-    </div>
-
-    <!-- Ingredients -->
-    <div class="vr-box">
-      <h3 class="vr-heading">Ingredients:</h3>
-      <ul class="vr-list">
-        <li>Chicken – 200g</li>
-        <li>Broccoli – 1 cup</li>
-      </ul>
-    </div>
-
-    <!-- Instructions -->
-    <div class="vr-box">
-      <h3 class="vr-heading">Instructions:</h3>
-      <ol class="vr-list">
-        <li>Cook chicken</li>
-        <li>Serve hot</li>
-      </ol>
-    </div>
-
-    <!-- Video (إذا ما عندك فيديو احذفي هذا البلوك كامل) -->
-    <div class="vr-box">
-      <h3 class="vr-heading">Video:</h3>
-      <a href="#" target="_blank">Watch Video</a>
-    </div>
-
-    <!-- Comments -->
-    <div class="vr-box">
-      <h3 class="vr-heading">Comments:</h3>
-
-      <div class="vr-comment-input">
-        <textarea class="vr-textarea" placeholder="Write a comment..." required></textarea>
-        <button class="vr-add-comment" type="button">Add Comment</button>
-      </div>
-
-      <div class="vr-comments-list">
-        <div class="vr-comment">
-          <img src="assets/img/usericon.png" class="vr-avatar-sm" alt="user">
-          <div><strong>Ali:</strong> Great recipe!</div>
-        </div>
-        <div class="vr-comment">
-          <img src="assets/img/usericon.png" class="vr-avatar-sm" alt="user">
-          <div><strong>Noor:</strong> Very easy and tasty.</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
-  <script src="assets/js/user.js"></script>
+  <!-- Recipe photo (no box) -->
+  <img src="assets/img/ch.jpg" alt="Recipe photo" class="vr-photo-clean">
+
+  <!-- Recipe Creator -->
+  <div class="vr-box">
+    <h3 class="vr-heading">Recipe Creator:</h3>
+    <div class="vr-creator">
+      <img src="assets/img/usericon.png" alt="creator photo">
+      <span>Sarah Ahmed</span>
+    </div>
+  </div>
+
+  <!-- Details -->
+  <div class="vr-box">
+    <h3 class="vr-heading">Details:</h3>
+    <p><strong>Category:</strong> Main Dish</p>
+    <p>Healthy and delicious recipe.</p>
+  </div>
+
+  <!-- Ingredients -->
+  <div class="vr-box">
+    <h3 class="vr-heading">Ingredients:</h3>
+    <ul class="vr-list">
+      <li>Chicken – 200g</li>
+      <li>Broccoli – 1 cup</li>
+    </ul>
+  </div>
+
+  <!-- Instructions -->
+  <div class="vr-box">
+    <h3 class="vr-heading">Instructions:</h3>
+    <ol class="vr-list">
+      <li>Cook chicken</li>
+      <li>Serve hot</li>
+    </ol>
+  </div>
+
+  <!-- Video -->
+  <div class="vr-box">
+    <h3 class="vr-heading">Video:</h3>
+    <a href="https://youtube.com" target="_blank">Watch Video</a>
+  </div>
+
+  <!-- Comments -->
+  <div class="vr-box">
+    <h3 class="vr-heading">Comments:</h3>
+
+    <div class="vr-comment-input">
+      <textarea class="vr-textarea" placeholder="Write a comment..." required></textarea>
+      <button class="vr-add-comment">Add Comment</button>
+    </div>
+
+    <div class="vr-comments-list">
+      <div class="vr-comment">
+        <img src="assets/img/usericon.png" alt="user">
+        <div><strong>Ali:</strong> Great recipe!</div>
+      </div>
+
+      <div class="vr-comment">
+        <img src="assets/img/usericon.png" alt="user">
+        <div><strong>Noor:</strong> Very easy and tasty.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/user.js"></script>
 </body>
 </html>
