@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>View Recipe</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>View Recipe</title>
+
+  <link rel="stylesheet" href="assets/css/style1.css">
+  <link rel="stylesheet" href="assets/css/user.css">
 </head>
 <body>
 
-<header>
-    <h1>Recipe 1</h1>
+<div class="container view-recipe">
 
-    <div>
-        <button>Add to Favourites</button>
-        <button>Like</button>
-        <button>Report</button>
-    </div>
-</header>
+  <!-- Title -->
+  <h1>Recipe 1</h1>
 
-<section>
-    <img src="images/recipe1.jpg" alt="Recipe Photo" width="200">
-</section>
+  <!-- Actions -->
+  <div class="recipe-actions">
+    <button>Add to Favourites</button>
+    <button>Like</button>
+    <button>Report</button>
+  </div>
 
-<section>
+  <!-- Image -->
+  <img src="assets/img/ch.jpg" class="recipe-image" alt="recipe photo">
+
+  <!-- Creator -->
+  <div class="recipe-section">
     <h3>Recipe Creator</h3>
     <p>
-        <img src="images/user.jpg" alt="creator photo" width="50">
-        Sarah Ahmed
+      <img src="assets/img/usericon.png" width="40">
+      Sarah Ahmed
     </p>
-</section>
+  </div>
 
-<section>
+  <!-- Details -->
+  <div class="recipe-section">
     <h3>Details</h3>
-    <p><strong>Category:</strong></p>
-    <p>
-        About recipe
-    </p>
-</section>
+    <p><strong>Category:</strong> Main Dish</p>
+    <p>Healthy and delicious recipe.</p>
+  </div>
 
-<section>
+  <!-- Ingredients -->
+  <div class="recipe-section">
     <h3>Ingredients</h3>
     <ul>
-        <li></li>
-        <li></li>
+      <li>Chicken – 200g</li>
+      <li>Broccoli – 1 cup</li>
     </ul>
-</section>
+  </div>
 
-<section>
+  <!-- Instructions -->
+  <div class="recipe-section">
     <h3>Instructions</h3>
     <ol>
-        <li></li>
-        <li></li>
+      <li>Cook chicken</li>
+      <li>Serve hot</li>
     </ol>
-</section>
+  </div>
 
-<section>
+  <!-- Video -->
+  <div class="recipe-section">
     <h3>Video</h3>
-    <a href="https://youtube.com">Watch Video</a>
-</section>
+    <a href="https://youtube.com" target="_blank">Watch Video</a>
+  </div>
 
-<section>
+  <!-- Comments -->
+  <div class="recipe-section comments">
     <h3>Comments</h3>
 
-    <div>
-        <p>
-            <img src="images/user2.jpg" width="40">
-            <strong>Ali:</strong> Great recipe!
-        </p>
-        <p>
-            <img src="images/user3.jpg" width="40">
-            <strong>Noor:</strong> Very easy and tasty.
-        </p>
+    <div class="comments-list">
+      <div class="comment">
+        <img src="assets/img/usericon.png">
+        <p><strong>Ali:</strong> Great recipe!</p>
+      </div>
     </div>
 
-    <form>
-        <textarea placeholder="Write a comment..." required></textarea><br><br>
-        <button type="submit">Add Comment</button>
+    <form class="comment-form">
+      <textarea placeholder="Write a comment..." required></textarea>
+      <button type="submit">Add Comment</button>
     </form>
-</section>
+  </div>
 
+</div>
+
+<script src="assets/js/user.js"></script>
 </body>
 </html>
-
