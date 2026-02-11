@@ -123,27 +123,26 @@ document.querySelectorAll('.recipe-actions button').forEach(btn => {
   });
 });
 
-/* ===============================
-   Add Comment (View Recipe)
-================================ */
-const commentForm = document.querySelector('.comment-form');
-if (commentForm) {
-  commentForm.addEventListener('submit', e => {
-    e.preventDefault();
 
-    const textarea = commentForm.querySelector('textarea');
-    if (!textarea.value.trim()) return;
+//add comments to the top 
+const addBtn = document.querySelector(".vr-add-comment");
+if (addBtn) {
+  addBtn.addEventListener("click", () => {
+    const ta = document.querySelector(".vr-textarea");
+    const list = document.querySelector(".vr-comments-list");
+    if (!ta || !list) return;
 
-    const commentsContainer = document.querySelector('.comments-list');
+    const text = ta.value.trim();
+    if (!text) return;
 
-    const comment = document.createElement('div');
-    comment.className = 'comment';
-    comment.innerHTML = `
-      <img src="assets/img/usericon.png">
-      <p><strong>You:</strong> ${textarea.value}</p>
+    const div = document.createElement("div");
+    div.className = "vr-comment";
+    div.innerHTML = `
+      <img src="assets/img/usericon.png" class="vr-avatar-sm" alt="user">
+      <div><strong>You:</strong> ${text}</div>
     `;
-
-    commentsContainer.prepend(comment);
-    textarea.value = '';
+    list.prepend(div);
+    ta.value = "";
   });
 }
+
