@@ -599,4 +599,143 @@
 .light-theme .logout-btn:hover {
   background: rgba(255, 0, 0, 0.05);
   color: #dc2626;
+
+}
+
+/* ===============================
+   My Recipes Page
+================================ */
+.my-recipes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.my-recipes-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.add-recipe-btn {
+  background: var(--gradient-1);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: var(--shadow-glow);
+}
+
+.my-recipes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.my-recipes-table th,
+.my-recipes-table td {
+  padding: 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.my-recipes-table thead {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.my-recipes-table th {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.recipe-cell {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.recipe-cell img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.action-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.action-link.edit {
+  color: var(--secondary);
+}
+
+.action-link.delete {
+  color: #ef4444;
+}
+
+/* ===============================
+   View Recipe Page
+================================ */
+.view-recipe {
+  max-width: 900px;
+  margin: auto;
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.recipe-actions button {
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  color: var(--light);
+  font-weight: 600;
+}
+
+.recipe-actions button.active {
+  background: var(--gradient-1);
+}
+
+.recipe-image {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+}
+
+.recipe-section {
+  background: rgba(15, 23, 42, 0.6);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+}
+
+.comments .comment {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.comments img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  border: none;
+  margin-bottom: 10px;
 }
