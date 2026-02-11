@@ -677,47 +677,139 @@
   color: #ef4444;
 }
 
-/* View Recipe uses SAME My Recipes table style */
+/* ===============================
+   View Recipe - Figure 5 Layout
+================================ */
 
-.actions-row {
-  margin-bottom: 20px;
+.view-recipe-figure {
+  max-width: 950px;
+  margin: 40px auto;
 }
 
-.actions-row button {
-  background: rgba(255,255,255,0.05);
-  border: none;
-  padding: 8px 14px;
-  border-radius: var(--radius-full);
-  color: var(--light);
-  font-weight: 600;
-  cursor: pointer;
+.vr-top {
+  position: relative;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-md);
+  padding: 18px 18px 80px;
+  margin-bottom: 18px;
 }
 
-.creator {
+.vr-title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.vr-actions {
+  position: absolute;
+  top: 14px;
+  right: 14px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 10px;
 }
 
-.creator img {
-  border-radius: 50%;
-}
-
-.comment-form textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: var(--radius-md);
-  border: none;
-}
-
-.comment-form button {
-  background: var(--gradient-1);
-  color: #fff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: var(--radius-full);
+.vr-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--light);
+  padding: 10px 12px;
+  border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
 }
 
+.vr-box {
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
 
+.vr-heading {
+  margin: 0 0 10px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.vr-photo-box {
+  display: flex;
+  justify-content: center;
+}
+
+.vr-photo {
+  width: 280px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.vr-creator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.vr-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.vr-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.vr-comment-input {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.vr-textarea {
+  width: 100%;
+  min-height: 70px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: var(--light);
+  resize: vertical;
+}
+
+.vr-add-comment {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--light);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.vr-comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vr-comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.vr-avatar-sm {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
