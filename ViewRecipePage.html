@@ -9,77 +9,96 @@
 </head>
 
 <body>
-<div class="container view-recipe-page">
 
-  <!-- Recipe Name -->
-  <h1 class="recipe-title">Recipe 1</h1>
+<div class="container user-dashboard">
+  <h1>View Recipe</h1>
 
-  <!-- Action Buttons -->
-  <div class="recipe-actions-vertical">
-    <button>🤍 Add to favourites</button>
-    <button>👍 Like recipe</button>
-    <button>🚩 Report recipe</button>
-  </div>
+  <table class="my-recipes-table">
 
-  <!-- Recipe Photo -->
-  <img src="assets/img/ch.jpg" alt="recipe photo" class="recipe-photo">
+    <!-- Action Buttons -->
+    <tr>
+      <th>Actions</th>
+      <td class="actions-row">
+        <button>🤍 Add to favourites</button>
+        <button>👍 Like</button>
+        <button>🚩 Report</button>
+      </td>
+    </tr>
 
-  <!-- Recipe Creator -->
-  <div class="recipe-box">
-    <h3>Recipe Creator:</h3>
-    <p class="creator">
-      <img src="assets/img/usericon.png">
-      Sarah Ahmed
-    </p>
-  </div>
+    <!-- Recipe Name & Photo -->
+    <tr>
+      <th>Recipe</th>
+      <td>
+        <strong>Recipe 1</strong><br><br>
+        <img src="assets/img/ch.jpg" width="200">
+      </td>
+    </tr>
 
-  <!-- Details -->
-  <div class="recipe-box">
-    <h3>Details:</h3>
-    <p><strong>Category:</strong> Main Dish</p>
-    <p>Healthy and delicious recipe.</p>
-  </div>
+    <!-- Creator -->
+    <tr>
+      <th>Recipe Creator</th>
+      <td class="creator">
+        <img src="assets/img/usericon.png" width="40">
+        Sarah Ahmed
+      </td>
+    </tr>
 
-  <!-- Ingredients -->
-  <div class="recipe-box">
-    <h3>Ingredients:</h3>
-    <ul>
-      <li>Chicken – 200g</li>
-      <li>Broccoli – 1 cup</li>
-    </ul>
-  </div>
+    <!-- Details -->
+    <tr>
+      <th>Details</th>
+      <td>
+        <strong>Category:</strong> Main Dish<br>
+        Healthy and delicious recipe.
+      </td>
+    </tr>
 
-  <!-- Instructions -->
-  <div class="recipe-box">
-    <h3>Instructions:</h3>
-    <ol>
-      <li>Cook chicken</li>
-      <li>Serve hot</li>
-    </ol>
-  </div>
+    <!-- Ingredients -->
+    <tr>
+      <th>Ingredients</th>
+      <td>
+        <ul>
+          <li>Chicken – 200g</li>
+          <li>Broccoli – 1 cup</li>
+        </ul>
+      </td>
+    </tr>
 
-  <!-- Video -->
-  <div class="recipe-box">
-    <h3>Video:</h3>
-    <a href="https://youtube.com" target="_blank">Watch Video</a>
-  </div>
+    <!-- Instructions -->
+    <tr>
+      <th>Instructions</th>
+      <td>
+        <ol>
+          <li>Cook chicken</li>
+          <li>Serve hot</li>
+        </ol>
+      </td>
+    </tr>
 
-  <!-- Comments -->
-  <div class="recipe-box">
-    <h3>Comments:</h3>
+    <!-- Video -->
+    <tr>
+      <th>Video</th>
+      <td>
+        <a href="https://youtube.com" target="_blank">Watch Video</a>
+      </td>
+    </tr>
 
-    <div class="comments-list">
-      <p>
-️👤 Ali: Great recipe!</p>
-      <p>👤 Noor: Very easy and tasty.</p>
-    </div>
+    <!-- Comments -->
+    <tr>
+      <th>Comments</th>
+      <td>
+        <div class="comments-list">
+          <p><strong>Ali:</strong> Great recipe!</p>
+          <p><strong>Noor:</strong> Very easy and tasty.</p>
+        </div>
 
-    <form class="comment-form">
-      <textarea placeholder="Write a comment..." required></textarea>
-      <button type="submit">Add Comment</button>
-    </form>
-  </div>
+        <form class="comment-form">
+          <textarea placeholder="Write a comment..." required></textarea><br>
+          <button type="submit">Add Comment</button>
+        </form>
+      </td>
+    </tr>
 
+  </table>
 </div>
 
 <script src="assets/js/user.js"></script>
