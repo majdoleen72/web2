@@ -676,3 +676,38 @@
 .action-link.delete {
   color: #ef4444;
 }
+
+/* View Recipe uses SAME My Recipes table style */
+
+.actions-row {
+  margin-bottom: 20px;
+}
+
+.actions-row button {
+  background: rgba(255,255,255,0.05);
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  color: var(--light);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.creator img {
+  border-radius: 50%;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  border: none;
+}
+
+
