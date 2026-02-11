@@ -681,7 +681,7 @@
 ================================ */
 
 .view-recipe-figure {
-  max-width: 740px;
+  max-width: 950px;
   margin: 40px auto;
 }
 
@@ -822,10 +822,11 @@
 }
 
 .vr-comment img {
-  width: 18px;
-  height: 18px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
 }
+
 
 
 
