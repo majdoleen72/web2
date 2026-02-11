@@ -676,9 +676,8 @@
 .action-link.delete {
   color: #ef4444;
 }
-
 /* ===============================
-   View Recipe - Figure 5 Layout
+   View Recipe – Final Clean Style
 ================================ */
 
 .view-recipe-figure {
@@ -686,40 +685,65 @@
   margin: 40px auto;
 }
 
-.vr-top {
+/* Top section */
+.vr-top-clean {
   position: relative;
-  border: 2px solid rgba(255,255,255,0.2);
-  border-radius: var(--radius-md);
-  padding: 18px 18px 80px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
-.vr-title {
+.vr-title-clean {
   text-align: center;
-  font-size: 34px;
-  font-weight: 800;
+  font-size: 44px;
+  font-weight: 900;
   margin: 0;
 }
 
+/* Action buttons (professional) */
 .vr-actions {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .vr-btn {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
   color: var(--light);
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: 10px 14px;
+  border-radius: 14px;
   font-weight: 700;
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
+.vr-btn i {
+  font-size: 14px;
+}
+
+.vr-btn:hover {
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-1px);
+}
+
+/* Recipe photo */
+.vr-photo-clean {
+  display: block;
+  margin: 0 auto 28px;
+  width: min(520px, 100%);
+  height: 280px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Boxes (Figure 5 style) */
 .vr-box {
   border: 2px solid rgba(255,255,255,0.2);
   border-radius: var(--radius-md);
@@ -733,18 +757,7 @@
   font-weight: 800;
 }
 
-.vr-photo-box {
-  display: flex;
-  justify-content: center;
-}
-
-.vr-photo {
-  width: 280px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
+/* Creator */
 .vr-creator {
   display: flex;
   align-items: center;
@@ -752,22 +765,23 @@
   font-weight: 700;
 }
 
-.vr-avatar {
-  width: 48px;
-  height: 48px;
+.vr-creator img {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
 }
 
+/* Lists */
 .vr-list {
   margin: 0;
   padding-left: 20px;
 }
 
+/* Comments */
 .vr-comment-input {
   display: grid;
   grid-template-columns: 1fr 160px;
   gap: 12px;
-  align-items: start;
   margin-bottom: 14px;
 }
 
@@ -786,7 +800,6 @@
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
   color: var(--light);
-  padding: 10px 12px;
   border-radius: 12px;
   font-weight: 800;
   cursor: pointer;
@@ -808,7 +821,7 @@
   border: 1px solid rgba(255,255,255,0.12);
 }
 
-.vr-avatar-sm {
+.vr-comment img {
   width: 36px;
   height: 36px;
   border-radius: 50%;
