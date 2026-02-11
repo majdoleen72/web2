@@ -740,10 +740,31 @@
   margin-bottom: 10px;
 }
 .view-recipe {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start;
+  max-width: 900px;
+  margin: 40px auto;
 }
+
+.recipe-actions {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipe-section {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.recipe-image {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 300px;
+}
+
 
 
