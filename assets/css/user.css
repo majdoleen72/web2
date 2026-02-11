@@ -739,3 +739,11 @@
   border: none;
   margin-bottom: 10px;
 }
+.view-recipe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+
