@@ -99,4 +99,51 @@ document.addEventListener('DOMContentLoaded', function() {
       // You could add a custom tooltip here if needed
     });
   });
+
 });
+
+/* ===============================
+   My Recipes - Delete Confirm
+================================ */
+document.querySelectorAll('.delete-recipe').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    if (confirm('Are you sure you want to delete this recipe?')) {
+      window.location.reload(); // Phase 1 behavior
+    }
+  });
+});
+
+/* ===============================
+   View Recipe Buttons
+================================ */
+document.querySelectorAll('.recipe-actions button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('active');
+  });
+});
+
+/* ===============================
+   Add Comment (View Recipe)
+================================ */
+const commentForm = document.querySelector('.comment-form');
+if (commentForm) {
+  commentForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const textarea = commentForm.querySelector('textarea');
+    if (!textarea.value.trim()) return;
+
+    const commentsContainer = document.querySelector('.comments-list');
+
+    const comment = document.createElement('div');
+    comment.className = 'comment';
+    comment.innerHTML = `
+      <img src="assets/img/usericon.png">
+      <p><strong>You:</strong> ${textarea.value}</p>
+    `;
+
+    commentsContainer.prepend(comment);
+    textarea.value = '';
+  });
+}
