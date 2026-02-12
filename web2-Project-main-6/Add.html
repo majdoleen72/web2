@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NutriNest | Add New Recipe</title>
+  <link rel="stylesheet" href="assets/css/style1.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .recipe-form-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      animation: fadeIn 0.5s ease;
+    }
+    .light-theme .recipe-form-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+    .form-section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 25px 0 15px;
+      color: var(--primary);
+      display: flex;
+      align-items: center; gap: 10px;
+    }
+    .dynamic-row { display: grid; grid-template-columns: 1fr 80px auto; gap: 10px; margin-bottom: 10px; }
+    .step-row { display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; margin-bottom: 10px; }
+    .description-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px;
+    }
+    .light-theme .description-box { background: #f8fafc; border-color: #e2e8f0; }
+    textarea.form-control { min-height: 100px; resize: none; border: none !important; background: transparent !important; color: inherit; }
+  </style>
+</head>
+
+<body>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="NutriNest Logo" class="logo-img"
+             style="width: 50px; height: 50px; object-fit: contain;">
+        <div class="logo-text">Nutri<span>Nest</span></div>
+      </a>
+
+      <div class="nav user-nav">
+
+        <!-- User profile link -->
+        <a href="user.html" class="user-link">
+          <i class="fas fa-user"></i>
+          <span id="navUserName">Loading...</span>
+        </a>
+
+        <!-- Sign out -->
+        <a href="index.html" class="login-btn" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i>
+          Sign out
+        </a>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="user-dashboard">
+    <div class="container">
+        <div class="user-main" style="max-width: 900px; margin: 0 auto;">
+          <div class="recipe-form-card">
+            <div class="section-header">
+              <h2><i class="fas fa-magic"></i> Create New Recipe</h2>
+              <p>Hello <span class="highlight-name" id="welcomeName" style="color: var(--primary); font-weight: 700;">User</span>, fill in the details to publish your masterpiece.</p>
+            </div>
+
+            <form id="recipeForm">
+              <div class="form-group">
+                <label><i class="fas fa-quote-left"></i> Recipe Name</label>
+                <input type="text" class="form-control" placeholder="e.g. Mediterranean Chicken Salad" required>
+              </div>
+
+              <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                  <label><i class="fas fa-list"></i> Category</label>
+                  <select class="form-control"><option>Main Dish</option><option>Snack</option><option>Dessert</option></select>
+                </div>
+                <div class="form-group">
+                  <label><i class="fas fa-camera"></i> Recipe Photo</label>
+                  <input type="file" class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label><i class="fas fa-align-left"></i> Description</label>
+                <div class="description-box">
+                  <textarea class="form-control" placeholder="Describe your healthy recipe story..." required></textarea>
+                </div>
+              </div>
+
+              <div class="form-section-title"><i class="fas fa-mortar-pestle"></i> Ingredients</div>
+              <div id="ingList">
+                <div class="dynamic-row">
+                  <input type="text" class="form-control" placeholder="Ingredient">
+                  <input type="text" class="form-control" placeholder="Qty">
+                  <button type="button" class="btn-action" style="color:#ef4444;" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+              <button type="button" class="btn-action" style="width:100%; border:1px dashed var(--primary); color:var(--primary);" onclick="addItem('ingList')">+ Add Ingredient</button>
+
+              <div class="form-section-title"><i class="fas fa-tasks"></i> Steps</div>
+              <div id="stepList">
+                <div class="step-row">
+                  <span style="padding-top:12px;">1.</span>
+                  <input type="text" class="form-control" placeholder="Instruction step...">
+                  <button type="button" class="btn-action" style="color:#ef4444;" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i></button>
+                </div>
+              </div>
+              <button type="button" class="btn-action" style="width:100%; border:1px dashed var(--secondary); color:var(--secondary);" onclick="addStep()">+ Add Step</button>
+
+              <div class="form-group" style="margin-top:25px;">
+                <label><i class="fab fa-youtube"></i> Video URL (Optional)</label>
+                <input type="url" class="form-control" placeholder="https://youtube.com/...">
+              </div>
+
+              <div style="display: flex; gap: 15px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                <button type="submit" class="btn-primary" style="flex: 2; justify-content: center; height: 50px; cursor: pointer;">Publish Recipe</button>
+                <a href="user.html" class="btn-action" style="flex: 1; text-align: center; display: flex; align-items: center; justify-content: center;">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>&copy;2026 NutriNest — IT329</p>
+          <p>Modern UI • Responsive • User-Friendly</p>
+        </div>
+        <div class="footer-right">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+  <script>
+    // كود جلب بيانات المستخدم وتحديث الواجهة
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            document.getElementById('navUserName').textContent = currentUser.name;
+            document.getElementById('welcomeName').textContent = currentUser.name;
+        } else {
+            window.location.href = 'login.html'; // إذا ما سجل يرجعه للوق إن
+        }
+    });
+
+    document.getElementById('recipeForm').onsubmit = function(e) {
+      e.preventDefault();
+      alert("✅ Success! Your recipe has been published."); 
+      window.location.href = "user.html";
+    };
+
+    function addItem(id) {
+      const div = document.createElement('div');
+      div.className = 'dynamic-row';
+      div.innerHTML = `<input type="text" class="form-control" placeholder="Ingredient"><input type="text" class="form-control" placeholder="Qty"><button type="button" class="btn-action" style="color:#ef4444;" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i></button>`;
+      document.getElementById(id).appendChild(div);
+    }
+    function addStep() {
+      const container = document.getElementById('stepList');
+      const num = container.children.length + 1;
+      const div = document.createElement('div');
+      div.className = 'step-row';
+      div.innerHTML = `<span style="padding-top:12px;">${num}.</span><input type="text" class="form-control" placeholder="Next step..."><button type="button" class="btn-action" style="color:#ef4444;" onclick="this.parentElement.remove()"><i class="fas fa-trash"></i></button>`;
+      container.appendChild(div);
+    }
+  </script>
+  <script src="assets/js/main2.js"></script>
+</body>
+
+</html>

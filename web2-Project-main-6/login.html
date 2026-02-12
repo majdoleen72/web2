@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriNest | تسجيل الدخول</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #3b82f6;
+            --accent: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .auth-wrapper {
+            width: 100%;
+            max-width: 420px;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+        }
+        
+        .logo-text span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .auth-header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .auth-header p {
+            color: var(--gray);
+            font-size: 16px;
+        }
+        
+        .auth-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 6px;
+            margin-bottom: 30px;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: transparent;
+            color: var(--gray);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.2);
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .input-with-icon input {
+            padding-right: 50px !important;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            color: var(--light);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .remember-me input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .remember-me span {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .forgot-password {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .forgot-password:hover {
+            color: var(--secondary);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+        
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: var(--gray);
+        }
+        
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .auth-divider span {
+            padding: 0 15px;
+            font-size: 14px;
+        }
+        
+        .social-login {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .social-btn {
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .auth-footer p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .switch-auth {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .switch-auth:hover {
+            color: var(--secondary);
+        }
+        
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .back-home:hover {
+            color: var(--light);
+        }
+        
+        .demo-accounts {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .demo-accounts h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .demo-account {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .demo-account:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .demo-account:last-child {
+            margin-bottom: 0;
+        }
+        
+        .demo-account strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+        
+        .demo-account span {
+            color: var(--gray);
+            font-size: 13px;
+            display: block;
+        }
+        
+        .demo-account small {
+            color: var(--primary);
+            font-size: 12px;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .floating-element {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+        }
+        
+        .floating-element:nth-child(2) {
+            bottom: 10%;
+            right: 10%;
+        }
+        
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 30px 20px;
+            }
+            
+            .social-login {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <div class="auth-wrapper">
+        <div class="auth-header">
+            <div class="logo-container">
+              <div class="logo-icon">N</div>
+                <div class="logo-text">Nutri<span>Nest</span></div>
+            </div>
+            <h1>مرحباً بعودتك</h1>
+            <p>سجل دخولك إلى حسابك</p>
+        </div>
+        
+        <div class="auth-card">
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="user-login">
+                    <i class="fas fa-user"></i>
+                    مستخدم
+                </button>
+                <button class="tab-btn" data-tab="admin-login">
+                    <i class="fas fa-shield-alt"></i>
+                    مدير
+                </button>
+            </div>
+            
+            <!-- User Login Form -->
+            <form class="auth-form active" id="user-login-form" data-type="user">
+                <div class="form-group">
+                    <label for="user-email">
+                        <i class="fas fa-envelope"></i>
+                        البريد الإلكتروني
+                    </label>
+                    <div class="input-with-icon">
+                        <input type="email" id="user-email" class="form-control" placeholder="ادخل بريدك الإلكتروني" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="user-password">
+                        <i class="fas fa-lock"></i>
+                        كلمة المرور
+                    </label>
+                    <div class="input-with-icon">
+                        <input type="password" id="user-password" class="form-control" placeholder="ادخل كلمة المرور" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-user">
+                        <span>تذكرني</span>
+                    </label>
+                    <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    تسجيل الدخول
+                </button>
+                
+                <div class="auth-divider">
+                    <span>أو</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-google"></i>
+                        جوجل
+                    </button>
+                    <button type="button" class="social-btn">
+                        <i class="fab fa-apple"></i>
+                        آبل
+                    </button>
+                </div>
+            </form>
+            
+            <!-- Admin Login Form -->
+            <form class="auth-form" id="admin-login-form" data-type="admin">
+                <div class="form-group">
+                    <label for="admin-email">
+                        <i class="fas fa-envelope"></i>
+                        البريد الإلكتروني
+                    </label>
+                    <div class="input-with-icon">
+                        <input type="email" id="admin-email" class="form-control" placeholder="ادخل بريدك الإلكتروني" required>
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="admin-password">
+                        <i class="fas fa-lock"></i>
+                        كلمة المرور
+                    </label>
+                    <div class="input-with-icon">
+                        <input type="password" id="admin-password" class="form-control" placeholder="ادخل كلمة المرور" required>
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-admin">
+                        <span>تذكرني</span>
+                    </label>
+                    <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-shield-alt"></i>
+                    دخول كمدير
+                </button>
+                
+                <div class="auth-divider">
+                    <span>دخول تجريبي</span>
+                </div>
+                
+                <div class="demo-accounts">
+                    <h3><i class="fas fa-flask"></i> حسابات تجريبية</h3>
+                    <div class="demo-account" onclick="fillAdminDemo('admin@nutrinest.com', 'admin123')">
+                        <strong>مدير النظام</strong>
+                        <span>admin@nutrinest.com</span>
+                        <small>انقر لملء النموذج</small>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="auth-footer">
+                <p>ليس لديك حساب؟ <a href="signup.html" class="switch-auth">أنشئ حساب الآن</a></p>
+                <a href="index.html" class="back-home">
+                    <i class="fas fa-arrow-right"></i>
+                    العودة للرئيسية
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const authForms = document.querySelectorAll('.auth-form');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                
+                // Update active tab
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show active form
+                authForms.forEach(form => {
+                    form.classList.remove('active');
+                    if (form.id === `${tabId}-form`) {
+                        form.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Fill demo admin account
+        function fillAdminDemo(email, password) {
+            document.getElementById('admin-email').value = email;
+            document.getElementById('admin-password').value = password;
+        }
+        
+        // Form Submission
+        const userForm = document.getElementById('user-login-form');
+        const adminForm = document.getElementById('admin-login-form');
+        
+        userForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('user-email').value;
+            const password = document.getElementById('user-password').value;
+            
+            // Save user data to localStorage
+            localStorage.setItem('currentUser', JSON.stringify({
+                email: email,
+                name: email.split('@')[0], // Extract name from email
+                type: 'user',
+                loginTime: new Date().toISOString()
+            }));
+            
+            // Redirect to user page
+            window.location.href = 'user.html';
+        });
+        
+        adminForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-password').value;
+            
+            // Save admin data to localStorage
+            localStorage.setItem('currentUser', JSON.stringify({
+                email: email,
+                name: 'مدير النظام',
+                type: 'admin',
+                loginTime: new Date().toISOString()
+            }));
+            
+            // Redirect to admin page
+            window.location.href = 'admin.html';
+        });
+        
+        // Check for saved credentials
+        document.addEventListener('DOMContentLoaded', function() {
+            const rememberUser = localStorage.getItem('rememberUser');
+            const rememberAdmin = localStorage.getItem('rememberAdmin');
+            
+            if (rememberUser) {
+                const data = JSON.parse(rememberUser);
+                document.getElementById('user-email').value = data.email || '';
+                document.getElementById('remember-user').checked = true;
+            }
+            
+            if (rememberAdmin) {
+                const data = JSON.parse(rememberAdmin);
+                document.getElementById('admin-email').value = data.email || '';
+                document.getElementById('remember-admin').checked = true;
+            }
+        });
+        
+        // Remember me functionality
+        document.getElementById('remember-user').addEventListener('change', function() {
+            if (this.checked) {
+                const email = document.getElementById('user-email').value;
+                if (email) {
+                    localStorage.setItem('rememberUser', JSON.stringify({ email: email }));
+                }
+            } else {
+                localStorage.removeItem('rememberUser');
+            }
+        });
+        
+        document.getElementById('remember-admin').addEventListener('change', function() {
+            if (this.checked) {
+                const email = document.getElementById('admin-email').value;
+                if (email) {
+                    localStorage.setItem('rememberAdmin', JSON.stringify({ email: email }));
+                }
+            } else {
+                localStorage.removeItem('rememberAdmin');
+            }
+        });
+  // قراءة التبويب من الرابط
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get('tab');
+
+  if (tab === 'admin') {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+
+    document.querySelector('[data-tab="admin-login"]').classList.add('active');
+    document.getElementById('admin-login-form').classList.add('active');
+  }
+
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Recipe</title>
+
+  <link rel="stylesheet" href="assets/css/style1.css">
+  <link rel="stylesheet" href="assets/css/user.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="NutriNest Logo" class="logo-img"
+             style="width: 50px; height: 50px; object-fit: contain;">
+        <div class="logo-text">Nutri<span>Nest</span></div>
+      </a>
+
+      <div class="nav user-nav">
+
+        <!-- User profile link -->
+        <a href="user.html" class="user-link">
+          <i class="fas fa-user"></i>
+          <span id="navUserName">Loading...</span>
+        </a>
+
+        <!-- Sign out -->
+        <a href="index.html" class="login-btn" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i>
+          Sign out
+        </a>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="container view-recipe-figure">
+    <div class="vr-page-card">
+
+      <!-- Top: Recipe name + actions -->
+      <div class="vr-top-clean">
+        <h1 class="vr-title-clean">High-Protein bowl</h1>
+
+        <div class="vr-actions">
+          <button class="vr-btn">
+            <i class="fa-regular fa-heart"></i>
+            Add to favourites
+          </button>
+          <button class="vr-btn">
+            <i class="fa-regular fa-thumbs-up"></i>
+            Like recipe
+          </button>
+          <button class="vr-btn">
+            <i class="fa-regular fa-flag"></i>
+            Report recipe
+          </button>
+        </div>
+      </div>
+
+      <!-- Recipe photo -->
+      <img src="assets/img/ch.jpg" alt="Recipe photo" class="vr-photo-clean">
+
+      <!-- Recipe Creator -->
+      <div class="vr-box">
+        <h3 class="vr-heading">Recipe Creator:</h3>
+        <div class="vr-creator">
+          <img src="assets/img/usericon.png" alt="creator photo">
+          <span>Sarah Ahmed</span>
+        </div>
+      </div>
+
+      <!-- Details -->
+      <div class="vr-box">
+        <h3 class="vr-heading">Details:</h3>
+        <p><strong>Category:</strong> Main Dish</p>
+        <p>Healthy and delicious recipe.</p>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="vr-box">
+        <h3 class="vr-heading">Ingredients:</h3>
+        <ul class="vr-list">
+          <li>Chicken – 200g</li>
+          <li>Broccoli – 1 cup</li>
+        </ul>
+      </div>
+
+      <!-- Instructions -->
+      <div class="vr-box">
+        <h3 class="vr-heading">Instructions:</h3>
+        <ol class="vr-list">
+          <li>Cook chicken</li>
+          <li>Serve hot</li>
+        </ol>
+      </div>
+
+      <!-- Video -->
+      <div class="vr-box">
+        <h3 class="vr-heading">Video:</h3>
+        <a href="#" target="_blank">Watch Video</a>
+      </div>
+
+      <!-- Comments -->
+      <div class="vr-box">
+        <h3 class="vr-heading">Comments:</h3>
+
+        <div class="vr-comment-input">
+          <textarea class="vr-textarea" placeholder="Write a comment..." required></textarea>
+          <button class="vr-add-comment">Add Comment</button>
+        </div>
+
+        <div class="vr-comments-list">
+          <div class="vr-comment">
+            <img src="assets/img/usericon.png" alt="user">
+            <div><strong>Ali:</strong> Great recipe!</div>
+          </div>
+
+          <div class="vr-comment">
+            <img src="assets/img/usericon.png" alt="user">
+            <div><strong>Noor:</strong> Very easy and tasty.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+ <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <p>&copy;2026 NutriNest — IT329</p>
+          <p>Modern UI • Responsive • User-Friendly</p>
+        </div>
+        <div class="footer-right">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  const navUserName = document.getElementById('navUserName');
+  if (currentUser && navUserName) {
+    navUserName.textContent = currentUser.name;
+  } else {
+    window.location.href = 'login.html';
+  }
+
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', function () {
+      localStorage.removeItem('currentUser');
+    });
+  }
+});
+</script>
+
+  <script src="assets/js/main2.js"></script>
+  <script src="assets/js/user.js"></script>
+</body>
+</html>
